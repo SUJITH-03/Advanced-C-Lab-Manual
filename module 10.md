@@ -9,20 +9,45 @@ Algorithm:
 4.	Call the search function and perform other linked list operations as needed.
  
 Program:
+```
+struct Node{
+    char data; 
+    struct Node *next;
+}*head;
 
-//type your code here
-
+void search(char data)
+{
+    struct Node* temp;
+    temp = head;
+    char item = data;
+    int i = 1;
+    if(temp == NULL)
+    {
+        printf("No elements\n");
+    }
+    else
+    {
+        while (temp != NULL) 
+        {
+            if (temp->data == item) 
+            {
+                printf("item %c found at location %d\n", item, i);
+                return;
+            }
+            temp = temp->next;
+            i++;    
+        }
+        printf("Item not found\n");
+    }
+}
+```
 Output:
 
-//paste your output here
-
-
+![image](https://github.com/user-attachments/assets/f18ee647-dfb5-4fcc-8df4-2d43b039cd14)
 
 Result:
 Thus, the program to search a given element in the given linked list is verified successfully.
 
-
- 
 EXP NO:17  PROGRAM TO INSERT A NODE IN A LINKED LIST.
 Aim:
 To write a C program to insert a node in a linked list.
@@ -33,14 +58,37 @@ Algorithm:
 4.	Call the insert function and perform other linked list operations as needed.
  
 Program:
+```
+struct Node{
+    int data; 
+    struct Node *next;
+}*head;
 
-//type your code here
 
+void insert(int data)
+{
+    struct Node *temp, *n;
+    n = (struct Node*)malloc(sizeof(struct Node));
+    if(head == NULL)
+    {
+        head = n;
+        head->data = data;
+    }
+    else
+    {
+        n->data = data;
+        n->next = NULL;
+        temp = head;
+        while(temp->next != NULL)
+            temp = temp->next;
+        temp->next = n;
+    }
+    
+}
+```
 Output:
+![image](https://github.com/user-attachments/assets/2b202fda-33ae-4620-86e9-a094d6ca597b)
 
-//paste your output here
-
- 
 Result:
 Thus, the program to insert a node in a linked list is verified successfully.
 
@@ -57,12 +105,29 @@ Algorithm:
 4.	Move to the next node by updating the temp pointer to point to the next node (temp = temp->next).
  
 Program:
+```
+struct Node
+{
+    struct Node *prev;
+    struct Node *next;
+    int data;
+}*head;
 
-//type your code here
+void display()
+{
+    struct Node *temp;
+    temp = head;
+    while(temp != NULL)
+    {
+        printf("%d ",temp->data);
+        temp = temp->next;
+    }
+}
+```
 
 Output:
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/a87f9c4a-9dd4-45ba-9065-52b4633179d0)
 
 
 Result:
@@ -82,18 +147,47 @@ Algorithm:
 5.	Set the new node's prev pointer to the last node and update the last node's next pointer to the new node.
  
 Program:
+```
+struct Node
+{
+    struct Node *prev;
+    struct Node *next;
+    float data;
+}*head;
 
-//type your code here
+void insert(float data)
+{
+    struct Node *n, *temp;
+    n = (struct Node*)malloc(sizeof(struct Node));
+    n->data = data;
+    n->next = NULL;
+    n->prev = NULL:
+    if(head == NULL)
+    {
+        head = n;
+        head->data = data;
+    }
+    else
+    {
+        temp = head;
+        while(temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+        temp->next = n;
+        n->prev = temp;
+    }
+}
 
+```
 Output:
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/a838706c-637b-4af0-9341-34a62cf79982)
+
 
 
 Result:
 Thus, the program to insert an element in doubly linked list is verified successfully.
-
-
 
 
 EXP NO:20 C FUNCTION TO DELETE A GIVEN ELEMENT IN THE GIVEN LINKED LIST
@@ -124,13 +218,41 @@ o	If the element is not found in any node, print a message indicating the elemen
 
 
 Program:
+```
+struct Node
+{
+    struct Node *prev;
+    struct Node *next;
+    int data;
+}*head;
 
-//type your code here
-
+void delete()
+{
+    struct Node *temp;
+    temp = head;
+    if(head == NULL)
+    {
+        printf("UNDERFLOW\n");
+    }
+    else if(head->next == NULL)
+    {
+        head = NULL;
+        free(head);
+        printf("node deleted\n");
+    }
+    else
+    {
+        temp = head;
+        head = head->next;
+        free(temp);
+        printf("node deleted\n");
+    }
+}
+```
 Output:
 
-//paste your output here
 
+![image](https://github.com/user-attachments/assets/e63bb099-c190-4b76-86ad-a8f5992505dc)
 
 
 
