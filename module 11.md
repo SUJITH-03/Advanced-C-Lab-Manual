@@ -12,10 +12,38 @@ Algorithm:
 5.	Call the max_of_four function with the input integers and store the result in the greater variable
  
 Program:
-//type your code here
-
+```
+#include<stdio.h>
+int max(int a, int b, int c, int d);
+int main()
+{
+    int a,b,c,d;
+    scanf("%d %d %d %d",&a, &b, &c, &d);
+    int x = max(a,b,c,d);
+    printf("%d",x);
+}
+int max(int a, int b, int c, int d)
+{
+    if(a>b && a>c && a>d)
+    {
+        return a;
+    }
+    else if (b>c && b>d)
+    {
+        return b;
+    }
+    else if(c>d)
+    {
+        return c;
+    }
+    else
+    {
+        return d;
+    }
+}
+```
 Output:
-//paste your output here
+ ![image](https://github.com/user-attachments/assets/711ba5ec-a07c-4f78-ab9a-0a0da6ec828a)
 
 Result:
 Thus, the program  that create a function to find the greatest number is verified successfully.
@@ -36,10 +64,48 @@ Algorithm:
 7.	Call the calculate_the_max function with input values.
  
 Program:
-//type your code here
+```
+#include <stdio.h>
+void maximum(int n, int k);
+int main() 
+{
+    int n, k;
+    scanf("%d %d", &n, &k);
+    maximum(n, k);
+}
 
+void maximum(int n, int k)
+{
+    int maxand = 0;
+    int maxor = 0;
+    int maxxor = 0;
+    for (int i = 1; i < n; i++) 
+    {
+        for (int j = i+1; j <= n; j++)
+        {
+            int andval = i & j;
+            int orval = i | j;
+            int xorval = i ^ j;
+
+            if (andval < k && andval > maxand) 
+            {
+                maxand = andval;
+            }
+            if (orval < k && orval > maxor)
+            {
+                maxor = orval;
+            }
+            if (xorval < k && xorval > maxxor)
+            {
+                maxxor = xorval;
+            }
+        }
+    }
+    printf("%d\n%d\n%d\n", maxand,maxor,maxxor);
+}
+```
 Output:
-//paste your output here
+![image](https://github.com/user-attachments/assets/caa7c025-54aa-4738-a2ae-40655977a8fe)
 
 Result:
 Thus, the program to print the maximum values for the AND, OR and XOR comparisons
@@ -59,11 +125,40 @@ Algorithm:
 5.	Use a for loop to iterate over the queries.
  
 Program:
-//type your code here
-
+```
+#include<stdio.h>
+int main()
+{
+    int s;
+    int n;
+    scanf("%d %d",&s,&n);
+    int lib[1000][1000]={0};
+    int cnt[1000]={0};
+    for(int i=0;i<n;i++)
+    {
+        int qt,x,y;
+        scanf("%d",&qt);
+        if(qt==1)
+        {
+            scanf("%d %d",&x,&y);
+            lib[x][cnt[x]]=y;
+            cnt[x]++;
+        }
+        if(qt==2)
+        {
+            scanf("%d %d",&x,&y);
+            printf("%d",lib[x][y]);
+        }
+        if(qt==3)
+        {
+            scanf("%d",&x);
+            printf("%d",cnt[x]);
+        }
+    }
+}
+```
 Output:
-//paste your output here
-
+![image](https://github.com/user-attachments/assets/fcfda982-ea3b-45e1-84cc-cc4e0745572e)
 
 Result:
 Thus, the program to write the logic for the requests is verified successfully.
@@ -86,12 +181,31 @@ Algorithm:
 
 
 Program:
-//type your code here
-
+```
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int n;
+    int s=0;
+    scanf ("%d",&n);
+    int *ptr;
+    ptr=(int*)malloc(n*sizeof (int));
+    for (int i=0;i<n;i++)
+    {
+        scanf ("%d",ptr+i);
+    }
+     for (int i=0;i<n;i++)
+     {
+         s+=ptr[i];
+     }
+     printf ("%d",s);
+}
+```
 Output:
-//paste your output here
 
- 
+ ![image](https://github.com/user-attachments/assets/cce3ae63-771e-423e-9cc2-6317f2185236)
+
 
 
 Result:
@@ -120,11 +234,27 @@ o	If a character is not a space, it may belong to a word. If it's the first non-
 
 
 Program:
-//type your code here
-
+```
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+int main()
+{
+    char a[100];
+    scanf("%[^\n]",a);
+    int c=1;
+    for(int i=0; a[i]!='\0'; i++)
+    {
+        if(a[i]==32)
+        {
+            c++;
+        }
+    }
+    printf("%d",c);
+}
+```
 Output:
-//paste your output here
-
+![image](https://github.com/user-attachments/assets/17add166-1613-4848-9258-7db06e3a8c47)
 
 
 Result:
